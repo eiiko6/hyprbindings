@@ -22,8 +22,9 @@ vector<string> extract_assigned_keys(const string &config_file,
   return keys;
 }
 
-void extract_commands(const string &config_file, const string &mod,
-                      const string &key) {
+vector<string> extract_commands(const string &mod, const string &key,
+                                const string &config_file) {
+  vector<string> commands;
   ifstream file(config_file);
   string line;
   regex pattern("^bind = \\$mainMod" + mod + ", " + key + ", (.+)");
@@ -31,8 +32,10 @@ void extract_commands(const string &config_file, const string &mod,
 
   while (getline(file, line)) {
     if (regex_search(line, matches, pattern)) {
-      cout << "   " << matches[1] << endl;
+      commands.push_back(matches[1]);
     }
   }
   file.close();
+
+  return commands;
 }

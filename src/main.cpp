@@ -59,21 +59,46 @@ int main(int argc, char *argv[]) {
 
     vector<string> config_files = get_config_files();
 
+    // Format the key for consistency
     string key = argv[2];
-    transform(key.begin(), key.end(), key.begin(), ::toupper);
+    transform(key.begin(), key.end(), key.begin(),
+              ::toupper); // Make it uppercase
 
+    // For each config file, check the relevant sections and print only if there
+    // are commands
     for (const auto &config_file : config_files) {
-      cout << "\nFrom " << config_file << ":" << endl;
-      cout << "super commands:" << endl;
-      extract_commands(config_file, "", key);
+      // Extract and print relevant commands only if the key is assigned
+      vector<string> super_commands = extract_commands("", key, config_file);
+      vector<string> super_shift_commands =
+          extract_commands(" SHIFT", key, config_file);
+      vector<string> super_control_commands =
+          extract_commands(" CONTROL", key, config_file);
 
-      cout << "\nsuper + shift commands:" << endl;
-      extract_commands(config_file, " SHIFT", key);
+      // Print the results if any commands exist for the key
+      if (!super_commands.empty()) {
+        cout << "super commands:" << endl;
+        for (vector<string>::iterator it = super_commands.begin();
+             it != super_commands.end(); ++it) {
+          cout << *it << endl;
+        }
+      }
 
-      cout << "\nsuper + control commands:" << endl;
-      extract_commands(config_file, " CONTROL", key);
+      if (!super_shift_commands.empty()) {
+        cout << "super+shift commands:" << endl;
+        for (vector<string>::iterator it = super_shift_commands.begin();
+             it != super_shift_commands.end(); ++it) {
+          cout << *it << endl;
+        }
+      }
+
+      if (!super_control_commands.empty()) {
+        cout << "super+control commands:" << endl;
+        for (vector<string>::iterator it = super_control_commands.begin();
+             it != super_control_commands.end(); ++it) {
+          cout << *it << endl;
+        }
+      }
     }
-
   } else {
     usage(argv[0]);
   }

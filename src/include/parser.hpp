@@ -14,7 +14,8 @@ const std::unordered_map<std::string, std::string> backend_to_visual = {
 
 std::vector<std::string> extract_assigned_keys(const std::string &config_file,
                                                const std::string &mod);
-void extract_commands(const std::string &config_file, const std::string &mod,
-                      const std::string &key);
+std::vector<std::string> extract_commands(const std::string &mod,
+                                          const std::string &key,
+                                          const std::string &config_file);
 
 #endif
