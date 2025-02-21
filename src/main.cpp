@@ -20,9 +20,10 @@ int main(int argc, char *argv[]) {
   }
 
   string command = argv[1];
-  vector<string> config_files = get_config_files();
 
   if (command == "layout") {
+    vector<string> config_files = get_config_files();
+
     vector<string> all_super_keys;
     vector<string> all_super_shift_keys;
     vector<string> all_super_control_keys;
@@ -55,6 +56,8 @@ int main(int argc, char *argv[]) {
     if (argc != 3) {
       usage(argv[0]);
     }
+
+    vector<string> config_files = get_config_files();
 
     string key = argv[2];
     transform(key.begin(), key.end(), key.begin(), ::toupper);

@@ -1,7 +1,9 @@
 #include "include/layout.hpp"
 #include "../config.h"
+#include "include/parser.hpp"
 #include <algorithm>
 #include <iostream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -14,10 +16,16 @@ void print_keyboard(const vector<string> &key_set) {
     for (const auto &key : row) {
       if (key == string{""})
         continue;
+
+      unordered_map<string, string>::const_iterator it =
+          backend_to_visual.find(key);
+
       if (is_assigned(key, key_set)) {
-        cout << BLUE << key << RESET << "  ";
+        cout << BLUE << (it == backend_to_visual.end() ? key : it->second)
+             << RESET << "  ";
       } else {
-        cout << RED << key << RESET << "  ";
+        cout << RED << (it == backend_to_visual.end() ? key : it->second)
+             << RESET << "  ";
       }
     }
     cout << endl;
