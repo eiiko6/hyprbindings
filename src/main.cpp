@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 
   if (command == "layout") {
     vector<string> config_files = get_config_files();
+    cout << endl;
 
     vector<string> all_super_keys;
     vector<string> all_super_shift_keys;
@@ -57,7 +58,10 @@ int main(int argc, char *argv[]) {
       usage(argv[0]);
     }
 
+    bool assigned = false;
+
     vector<string> config_files = get_config_files();
+    cout << endl;
 
     // Format the key for consistency
     string key = argv[2];
@@ -76,29 +80,39 @@ int main(int argc, char *argv[]) {
 
       // Print the results if any commands exist for the key
       if (!super_commands.empty()) {
+        assigned = true;
         cout << "super commands:" << endl;
         for (vector<string>::iterator it = super_commands.begin();
              it != super_commands.end(); ++it) {
-          cout << *it << endl;
+          cout << "- " << *it << endl;
         }
+        cout << endl;
       }
 
       if (!super_shift_commands.empty()) {
+        assigned = true;
         cout << "super+shift commands:" << endl;
         for (vector<string>::iterator it = super_shift_commands.begin();
              it != super_shift_commands.end(); ++it) {
-          cout << *it << endl;
+          cout << "- " << *it << endl;
+          assigned = true;
         }
+        cout << endl;
       }
 
       if (!super_control_commands.empty()) {
+        assigned = true;
         cout << "super+control commands:" << endl;
         for (vector<string>::iterator it = super_control_commands.begin();
              it != super_control_commands.end(); ++it) {
-          cout << *it << endl;
+          cout << "- " << *it << endl;
         }
+        cout << endl;
       }
     }
+
+    if (!assigned)
+      cout << "No bindings have been found for this key." << endl;
   } else {
     usage(argv[0]);
   }
