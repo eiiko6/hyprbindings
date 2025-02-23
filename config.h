@@ -3,6 +3,9 @@
 
 #include <array>
 
+constexpr auto CONFIG_FILE_DIR = "~/.config/hyprkeymap/";
+constexpr auto CONFIG_FILE = "~/.config/hyprkeymap/hyprkeymap.conf";
+
 // Text colors
 constexpr auto RESET = "\033[0m";
 constexpr auto BLUE = "\033[34m";
@@ -22,9 +25,5 @@ constexpr std::array<std::array<const char *, 14>, 7> layout = {
      {"CTRL", "ALT", "", "SPACE", "", "ALT", "CTRL", "", "", "", "", "", "",
       ""},
      {"", "LEFT", "UP", "DOWN", "RIGHT", "", "", "", "", "", "", "", "", ""}}};
-
-// Default config file paths
-constexpr std::array<const char *, 2> config_paths = {
-    "~/.config/hypr/hyprland.conf", "~/.config/hypr/bindings.conf"};
 
 #endif

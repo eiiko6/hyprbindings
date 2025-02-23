@@ -38,7 +38,7 @@ hyprkeymap check semicolon
 
 ## Configuration
 
-List your config files in `config.h`.
+List your config files in `~/.config/hyprkeymap/hyprkeymap.conf`.
 
 Ensure your hyprland config already follows this format:
 
