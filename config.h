@@ -3,8 +3,8 @@
 
 #include <array>
 
-constexpr auto CONFIG_FILE_DIR = "~/.config/hyprkeymap/";
-constexpr auto CONFIG_FILE = "~/.config/hyprkeymap/hyprkeymap.conf";
+constexpr auto CONFIG_FILE_DIR = "~/.config/hyprbindings/";
+constexpr auto CONFIG_FILE = "~/.config/hyprbindings/hyprbindings.conf";
 
 // Text colors
 constexpr auto RESET = "\033[0m";

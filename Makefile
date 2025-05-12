@@ -10,7 +10,7 @@ SRCS := $(wildcard $(SRC_DIR)/*.cpp)
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
 # Final executable
-TARGET = $(BUILD_DIR)/hyprkeymap
+TARGET = $(BUILD_DIR)/hyprbindings
 
 # Default target
 all: $(TARGET)

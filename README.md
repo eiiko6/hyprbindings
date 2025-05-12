@@ -1,12 +1,12 @@
-# HyprKeymap
+# HyprBindings
 
-HyprKeymap is a utility for displaying and managing keybindings in Hyprland configurations. It parses the keybinds from your Hyprland configuration files and visually displays them in a keyboard layout. You can also check if a specific key is assigned to any command.
+HyprBindings is a utility for displaying keybindings in Hyprland configurations. It parses the keybinds from your Hyprland configuration files and visually displays them in a keyboard layout. You can also check if a specific key is assigned to any command.
 
 ## Installation
 
 ```sh
-git clone https://github.com/eiiko6/hyprkeymap.git
-cd hyprkeymap
+git clone https://github.com/eiiko6/hyprbindings.git
+cd hyprbindings
 sudo make clean install
 ```
 
@@ -17,28 +17,28 @@ sudo make clean install
 ### Display Keyboard Layout
 
 ```sh
-hyprkeymap layout
+hyprbindings layout
 ```
 
 ### Check Specific Key
 
 ```sh
-hyprkeymap check <key>
+hyprbindings check <key>
 ```
 
 Examples:
 
 ```sh
-hyprkeymap check A
-hyprkeymap check h
-hyprkeymap check semicolon
+hyprbindings check A
+hyprbindings check h
+hyprbindings check semicolon
 ```
 
 ---
 
 ## Configuration
 
-List your config files in `~/.config/hyprkeymap/hyprkeymap.conf`.
+List your config files in `~/.config/hyprbindings/hyprbindings.conf`.
 
 Ensure your hyprland config already follows this format:
 
